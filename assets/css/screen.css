@@ -91,60 +91,16 @@ body {
 /* 3. Special Template Styles
 /* ---------------------------------------------------------- */
 
-@media (min-width: 900px) {
-    .home-template .post-feed,
-    .tag-template .post-feed,
-    .author-template .post-feed {
-        margin-top: -70px;
-        padding-top: 0;
-    }
-    .home-template .site-nav {
-        position: relative;
-        top: -70px;
-    }
-}
-
 
 /* 4. Site Header
 /* ---------------------------------------------------------- */
 
 .site-header {
     position: relative;
-    padding-top: 12px;
-    padding-bottom: 12px;
-    color: #fff;
-    background: color(var(--darkgrey) l(-5%)) no-repeat center center;
+    background: #fff;
     background-size: cover;
-}
-
-.site-header:before {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 10;
-    display: block;
-    background: rgba(0,0,0,0.18);
-}
-
-.site-header:after {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: auto;
-    left: 0;
-    z-index: 10;
-    display: block;
-    height: 80px;
-    background: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0));
-}
-
-.site-header.no-image:before,
-.site-header.no-image:after {
-    display: none;
+    box-shadow: 0 0 14px -6px rgba(0,0,0,.2)!important;
+    z-index: 101;
 }
 
 .site-header-content {
@@ -200,7 +156,6 @@ body {
     justify-content: space-between;
     align-items: flex-start;
     overflow-y: hidden;
-    height: 40px;
     font-size: 1.2rem;
 }
 
@@ -211,11 +166,22 @@ body {
     overflow-y: hidden;
     -webkit-overflow-scrolling: touch;
     margin-right: 10px;
-    padding-bottom: 80px;
-    letter-spacing: 0.4px;
     white-space: nowrap;
 
     -ms-overflow-scrolling: touch;
+}
+
+.site-nav-logo {
+    height: 36px;
+    padding: 16px;
+    padding-left: 0;
+    box-sizing: content-box;
+}
+
+@media (max-width: 360px) {
+    .site-nav-logo {
+        padding-right: 0;
+    }
 }
 
 /* Site Nav Hack Explanation (above):
@@ -226,60 +192,47 @@ The knock-on effect of this is ugly browser-scroll bars at the bottom, so 80px o
 
 */
 
-.site-nav-logo {
-    flex-shrink: 0;
-    display: block;
-    margin-right: 24px;
-    padding: 11px 0;
-    color: #fff;
-    font-size: 1.7rem;
-    line-height: 1em;
-    font-weight: bold;
-    letter-spacing: -0.5px;
-}
-
-.site-nav-logo:hover {
-    text-decoration: none;
-}
-
-.site-nav-logo img {
-    display: block;
-    width: auto;
-    height: 21px;
-}
-
 .nav {
     display: flex;
-    margin: 0 0 0 -12px;
-    padding: 0;
+    margin: 0;
     list-style: none;
+    padding: 0;
 }
 
 .nav li {
     display: block;
     margin: 0;
     padding: 0;
-    text-transform: uppercase;
 }
 
 .nav li a {
     display: block;
     margin: 0;
-    padding: 10px 12px;
-    color: #fff;
-    opacity: 0.8;
+    padding: 8px 15px;
+    height: 36px;
+    color: #000;
+    font-weight: 500;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen-Sans, Ubuntu, Cantarell, Helvetica Neue, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-size: 14px;
+}
+
+@media (max-width: 360px) {
+    .nav li a {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
 }
 
 .nav li a:hover {
     text-decoration: none;
-    opacity: 1;
 }
 
 .site-nav-right {
     flex-shrink: 0;
     display: flex;
     align-items: center;
-    height: 40px;
+    margin-top: 16px;
 }
 
 .social-links {
@@ -298,8 +251,7 @@ The knock-on effect of this is ugly browser-scroll bars at the bottom, so 80px o
     align-items: center;
     margin: 0;
     padding: 10px;
-    color: #fff;
-    opacity: 0.8;
+    color: #000;
 }
 
 .social-link:hover {
@@ -308,7 +260,6 @@ The knock-on effect of this is ugly browser-scroll bars at the bottom, so 80px o
 
 .social-link svg {
     height: 1.8rem;
-    fill: #fff;
 }
 
 .social-link-fb svg {
@@ -329,13 +280,12 @@ The knock-on effect of this is ugly browser-scroll bars at the bottom, so 80px o
 
 .subscribe-button {
     display: block;
-    padding: 4px 10px;
-    border: #fff 1px solid;
-    color: #fff;
-    font-size: 1.2rem;
+    padding: 8px 10px;
+    color: #2196f3;
+    border: 1px solid #2196f3;
+    font-size: 14px;
     line-height: 1em;
-    border-radius: 10px;
-    opacity: 0.8;
+    border-radius: 5px;
 }
 
 .subscribe-button:hover {
@@ -343,18 +293,9 @@ The knock-on effect of this is ugly browser-scroll bars at the bottom, so 80px o
     opacity: 1;
 }
 
-.rss-button {
-    opacity: 0.8;
-}
-
-.rss-button:hover {
-    opacity: 1;
-}
-
 .rss-button svg {
     margin-bottom: 1px;
     height: 2.1rem;
-    fill: #fff;
 }
 
 @media (max-width: 700px) {
@@ -393,7 +334,7 @@ The knock-on effect of this is ugly browser-scroll bars at the bottom, so 80px o
     background: #fff center center;
     background-size: cover;
     border-radius: 5px;
-    box-shadow: rgba(39,44,49,0.06) 8px 14px 38px, rgba(39, 44, 49, 0.03) 1px 3px 8px;
+    box-shadow: 0px 0px 6px rgba(39,44,49,.05);
     transition: all 0.5s ease;
 }
 
@@ -641,10 +582,6 @@ make sure this only happens on large viewports / desktop-ish devices.
     }
 }
 
-.home-template .site-header:after {
-    display: none;
-}
-
 
 /* Adjust some margins for smaller screens */
 @media (max-width: 650px) {
@@ -664,7 +601,12 @@ make sure this only happens on large viewports / desktop-ish devices.
 .post-template .site-main,
 .page-template .site-main {
     padding-bottom: 4vw;
+}
+
+.post-template .post-full,
+.page-template .post-full {
     background: #fff;
+    margin-top: 40px;
 }
 
 .post-full {
@@ -2223,8 +2165,7 @@ Usage (In Ghost editor):
     position: relative;
     padding-top: 20px;
     padding-bottom: 60px;
-    color: #fff;
-    background: color(var(--darkgrey) l(-15%));
+    background: #fff;
 }
 
 .site-footer-content {
@@ -2236,15 +2177,6 @@ Usage (In Ghost editor):
     font-size: 1.3rem;
 }
 
-.site-footer-content a {
-    color: rgba(255,255,255,0.7);
-}
-
-.site-footer-content a:hover {
-    color: rgba(255,255,255,1);
-    text-decoration: none;
-}
-
 .site-footer-nav {
     display: flex;
 }
@@ -2252,6 +2184,7 @@ Usage (In Ghost editor):
 .site-footer-nav a {
     position: relative;
     margin-left: 20px;
+    color: #000;
 }
 
 .site-footer-nav a:before {
