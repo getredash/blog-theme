@@ -99,8 +99,14 @@ body {
     position: relative;
     background: #fff;
     background-size: cover;
-    box-shadow: 0 0 14px -6px rgba(0,0,0,.2)!important;
+    box-shadow: 0 4px 4px -3px rgba(0,0,0,.08)!important;
     z-index: 101;
+}
+
+body:not(.post-template) .site-header{
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
 }
 
 .site-header-content {
@@ -217,6 +223,13 @@ The knock-on effect of this is ugly browser-scroll bars at the bottom, so 80px o
     font-size: 14px;
 }
 
+.nav li a:hover,
+.social-link:hover,
+.rss-button:hover {
+    background: #f8fafa;
+    border-radius: 2px;
+}
+
 @media (max-width: 360px) {
     .nav li a {
         padding-left: 10px;
@@ -241,10 +254,6 @@ The knock-on effect of this is ugly browser-scroll bars at the bottom, so 80px o
     align-items: center;
 }
 
-.social-links a:last-of-type {
-    padding-right: 20px;
-}
-
 .social-link {
     display: flex;
     justify-content: center;
@@ -256,6 +265,11 @@ The knock-on effect of this is ugly browser-scroll bars at the bottom, so 80px o
 
 .social-link:hover {
     opacity: 1;
+}
+
+.social-link-tw {
+    position: relative;
+    top: 1px;
 }
 
 .social-link svg {
@@ -293,8 +307,14 @@ The knock-on effect of this is ugly browser-scroll bars at the bottom, so 80px o
     opacity: 1;
 }
 
+.rss-button {
+    width: 38px;
+    height: 38px;
+    line-height: 38px;
+    text-align: center;
+}
+
 .rss-button svg {
-    margin-bottom: 1px;
     height: 2.1rem;
 }
 
