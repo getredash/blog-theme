@@ -185,8 +185,10 @@ $(document).ready(function () {
         // show/hide floating header
         if (lastScrollY >= trigger + triggerOffset) {
             header.classList.add('floating-active');
+            document.body.classList.add('has-floating-header');
         } else {
             header.classList.remove('floating-active');
+            document.body.classList.remove('has-floating-header');
         }
 
         progressBar.setAttribute('max', progressMax);

@@ -103,7 +103,7 @@ body {
     z-index: 101;
 }
 
-body:not(.post-template) .site-header{
+body:not(.has-floating-header) .site-header{
     position: -webkit-sticky;
     position: sticky;
     top: 0;
