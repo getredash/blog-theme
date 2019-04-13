@@ -65,6 +65,13 @@ body {
     flex-grow: 1;
 }
 
+@media (max-width: 650px) {
+    .post-template .site-main {
+        background: #fff;
+        margin-top: 40px;
+    }
+}
+
 /* Full width page blocks */
 .outer {
     position: relative;
@@ -96,17 +103,23 @@ body {
 /* ---------------------------------------------------------- */
 
 .site-header {
-    position: relative;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
     background: #fff;
     background-size: cover;
     box-shadow: 0 4px 4px -3px rgba(0,0,0,.08)!important;
     z-index: 101;
 }
 
-body:not(.has-floating-header) .site-header{
-    position: -webkit-sticky;
-    position: sticky;
-    top: 0;
+body.has-floating-header .site-header{
+    position: relative;
+}
+
+@media (max-width: 650px) {
+    .site-header{
+        position: relative;
+    }
 }
 
 .site-header-content {
@@ -114,8 +127,8 @@ body:not(.has-floating-header) .site-header{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 10vw 4vw;
-    min-height: 200px;
+    padding: 7vw 4vw 5vw;
+    min-height: 150px;
     max-height: 450px;
     text-align: center;
 }
@@ -179,6 +192,7 @@ body:not(.has-floating-header) .site-header{
 
 .site-nav-logo {
     height: 36px;
+    width: 38px;
     padding: 16px;
     padding-left: 0;
     box-sizing: content-box;
@@ -608,8 +622,17 @@ make sure this only happens on large viewports / desktop-ish devices.
     .post-feed {
         padding-top: 5vw;
     }
+    .post-feed, .read-next-feed {
+        margin: 0 !important;
+    }
     .post-card {
         margin: 0 20px 5vw;
+    }
+    .post-feed .post-card,
+    .read-next-feed .post-card, 
+    .read-next-feed .read-next-card {
+        margin-left: 0;
+        margin-right: 0;
     }
 }
 
@@ -627,6 +650,13 @@ make sure this only happens on large viewports / desktop-ish devices.
 .page-template .post-full {
     background: #fff;
     margin-top: 40px;
+}
+
+@media (max-width: 650px) {
+    .post-template .post-full,
+    .page-template .post-full {
+        margin-top: 0;
+    }
 }
 
 .post-full {
@@ -2193,12 +2223,23 @@ Usage (In Ghost editor):
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    color: rgba(255,255,255,0.7);
     font-size: 1.3rem;
 }
 
+.site-footer-content img {
+    vertical-align: baseline;
+    position: relative;
+    top: 2px;
+}
+
+.site-footer-content .copyright {
+    color: #607d8b;
+}
+
+
 .site-footer-nav {
     display: flex;
+    margin-top: 10px;
 }
 
 .site-footer-nav a {
