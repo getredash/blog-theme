@@ -314,11 +314,14 @@ The knock-on effect of this is ugly browser-scroll bars at the bottom, so 80px o
     font-size: 14px;
     line-height: 1em;
     border-radius: 5px;
+    transition: all 200ms ease-in-out;
+    margin-left: 8px;
 }
 
 .subscribe-button:hover {
+    background-color: #2196f3;
+    color: white;
     text-decoration: none;
-    opacity: 1;
 }
 
 .rss-button {
@@ -1155,11 +1158,11 @@ Usage (In Ghost editor):
 
 .subscribe-form {
     margin: 1.5em 0;
-    padding: 6.5vw 7vw 7vw;
-    border: color(var(--whitegrey) l(+2%)) 1px solid;
+    padding: 6.5vw 7vw 2vw;
+    /* border: color(var(--whitegrey) l(+2%)) 1px solid; */
     text-align: center;
-    background: color(var(--whitegrey) l(+4%));
-    border-radius: 7px;
+    /* background: color(var(--whitegrey) l(+4%)); */
+    /* border-radius: 7px; */
 }
 
 .subscribe-form-title {
@@ -1897,7 +1900,7 @@ Usage (In Ghost editor):
     display: flex;
     flex-direction: column;
     max-width: 1040px;
-    width: 100vw;
+    /* width: 100vw; */
 }
 
 .kg-gallery-row {
