@@ -1,7 +1,7 @@
 {
     "name": "redash-blog",
     "description": "The Redash company blog theme which runs on blog.redash.io",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "engines": {
         "ghost": ">=2.0.0",
         "ghost-api": "v2"
