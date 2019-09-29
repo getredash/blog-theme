@@ -636,7 +636,7 @@ make sure this only happens on large viewports / desktop-ish devices.
         margin: 0 20px 5vw;
     }
     .post-feed .post-card,
-    .read-next-feed .post-card, 
+    .read-next-feed .post-card,
     .read-next-feed .read-next-card {
         margin-left: 0;
         margin-right: 0;
