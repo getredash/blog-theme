@@ -17,9 +17,7 @@ var cssnano = require('cssnano');
 var customProperties = require('postcss-custom-properties');
 var easyimport = require('postcss-easy-import');
 
-var nodemonServerInit = function () {
-    livereload.listen(1234);
-};
+var alltasks = gulp.parallel(js, css);
 
 function handleError(done) {
     return function (err) {
@@ -30,13 +28,7 @@ function handleError(done) {
     };
 }
 
-gulp.task('build', ['css', 'js'], function (/* cb */) {
-    return nodemonServerInit();
-});
-
-gulp.task('generate', ['css', 'js']);
-
-gulp.task('css', function (done) {
+function css(done) {
     var processors = [
         easyimport,
         customProperties,
@@ -53,9 +45,9 @@ gulp.task('css', function (done) {
         gulp.dest('assets/built/'),
         livereload()
     ], handleError(done));
-});
+}
 
-gulp.task('js', function (done) {
+function js(done) {
     var jsFilter = filter(['**/*.js'], {restore: true});
 
     pump([
@@ -68,13 +60,9 @@ gulp.task('js', function (done) {
         gulp.dest('assets/built/'),
         livereload()
     ], handleError(done));
-});
+}
 
-gulp.task('watch', function () {
-    gulp.watch('assets/css/**', ['css']);
-});
-
-gulp.task('zip', ['css', 'js'], function (done) {
+gulp.task('zip', gulp.series(alltasks, function (done) {
     var targetDir = 'dist/';
     var themeName = require('./package.json').name;
     var filename = themeName + '.zip';
@@ -88,8 +76,4 @@ gulp.task('zip', ['css', 'js'], function (done) {
         zip(filename),
         gulp.dest(targetDir)
     ], handleError(done));
-});
-
-gulp.task('default', ['build'], function () {
-    gulp.start('watch');
-});
+}));
