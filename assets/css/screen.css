@@ -242,8 +242,8 @@ The knock-on effect of this is ugly browser-scroll bars at the bottom, so 80px o
 }
 
 .nav li a:hover,
-.social-link:hover,
-.rss-button:hover {
+.site-nav-right .social-link:hover,
+.site-nav-right .rss-button:hover {
     background: #f8fafa;
     border-radius: 2px;
 }
@@ -302,8 +302,23 @@ The knock-on effect of this is ugly browser-scroll bars at the bottom, so 80px o
     height: 1.6rem;
 }
 
-.social-link-wb svg path {
-    stroke: #fff;
+.author-meta .social-link svg path,
+.author-meta  .social-link-rss svg circle {
+    fill: #3c484e;
+}
+
+.author-meta .social-link:hover svg path,
+.author-meta  .social-link-rss:hover svg circle {
+    fill: #000;
+}
+
+.author-meta .social-link-wb svg path {
+    stroke: #3c484e;
+    fill: transparent !important;
+}
+
+.author-meta .social-link-wb:hover svg path {
+    stroke: #000;
 }
 
 .social-link-rss svg {
